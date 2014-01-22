@@ -1,3 +1,9 @@
+/*****************************************************
+Using the High/Low Method to solve for the Square Root
+of a number n given as a command line argument.
+	Input n = argv[1]
+******************************************************/
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -29,9 +35,6 @@ int main(int argc, char *argv[])
 		}
 	}
 	
-	/*const double digits = atof(argv[2]);
-	mid = (mid*digits + (mid<0 ? -0.5 : 0.5))/digits;*/
-
 	printf("Root of %f is %f.\n", n, mid);
 	return 0;
 
