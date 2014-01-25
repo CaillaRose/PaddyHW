@@ -1,5 +1,5 @@
 /**********************************************************
-Determines whether an inputted number is Square/Triangular
+Determines whether an input number is Square/Triangular
 	or both.
 ***********************************************************/
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	{
 		testSq = isSquare(i);
 	
-		if (test == 1)
+		if (testSq == 1)
 		{
 			printf("%d is a square number!\n", i);
 			testTri = isTriangle(i);
