@@ -1,34 +1,19 @@
-CC=gcc
-CFLAGS= -Wall -pedantic
-LDFLAGS=
-SOURCES=ex01numbers.c ex02sqrt.c
-EXECUTABLE=make
-OBJECTS=$(SOURCES:.c=.o)
+ex01numbers: ex01numbers.c
+	gcc ex01numbers.c -o ex01numbers -lm
 
-all: $(SOURCES) $(EXECUTABLE)
+ex02sqrt: ex02sqrt.c
+	gcc ex02sqrt.c -o ex02sqrt -lm
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+all: ex01numbers ex02sqrt
 
-.c.o:
-	$(CC) $(CFLAGS) $< -o $@
+ex01numbers-test: ex01numbers.c 
+	gcc ex01numbers.c -o ex01numbers -lm;./ex01numbers 10
 
-ex01numbers: 
-	ex01numbers.c
-
-ex02sqrt:
-	ex02sqrt.c
-
-#Tests-runs files with test input
-ex01numbers-test:
-	ex01numbers.o < ex01numbers-test.txt
-
-ex02sqrt-test:
-	ex02sqrt.o < ex02sqrt-test.txt
+ex02sqrt-test: ex02sqrt.c
+	gcc ex02sqrt.c -o ex02sqrt -lm;./ex02sqrt 144 0.001
 
 test: ex01numbers-test ex02sqrt-test
-
+	
 
 clean:
-	rm -f *.o 
-
+	rm ex01numbers ex02sqrt
